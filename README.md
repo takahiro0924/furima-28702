@@ -12,7 +12,7 @@
 | first_name            | string | null: false |
 | family_furigana       | string | null: false |
 | first_furigana        | string | null: false |
-| birthday              | string | null: false |
+| birthday              | date   | null: false |
 
 ### Association
 
@@ -21,17 +21,18 @@
 
 ## sell_items テーブル
 
-| Column       | Type   | Options     |
-| ------------ | ------ | ----------- |
-| name         | string | null: false |
-| explanation  | text   | null: false |
-| image        | string | null: false |
-| category     | string | null: false |
-| status       | string | null: false |
-| delivery_fee | string | null: false |
-| area         | string | null: false |
-| day          | string | null: false |
-| price        | string | null: false |
+| Column          | Type    | Options           |
+| --------------- | ------- | ----------------- |
+| name            | string  | null: false       |
+| explanation     | text    | null: false       |
+| image           | string  | null: false       |
+| category_id     | integer | null: false       |
+| status_id       | integer | null: false       |
+| delivery_fee_id | integer | null: false       |
+| area_id         | integer | null: false       |
+| day_id          | integer | null: false       |
+| price           | integer | null: false       |
+| user_id         | integer | foreign_key: true |
 
 ### Association
 
@@ -40,8 +41,10 @@
 
 ## buy_items テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
+| Column       | Type    | Options           |
+| ------------ | ------- | ----------------- |
+| user_id      | integer | foreign_key: true |
+| sell_item_id | integer | foreign_key: true |
 
 ### Association
 
@@ -51,13 +54,15 @@
 
 ## shipping_addresses テーブル
 
-| Column       | Type   | Options     |
-| ------------ | ------ | ----------- |
-| postal_code  | string | null: false |
-| city         | text   | null: false |
-| address      | string | null: false |
-| building     | string | null: false |
-| phone_number | string | null: false |
+| Column          | Type    | Options           |
+| ------------    | ------- | ----------------- |
+| postal_code     | string  | null: false       |
+| prefectures_id  | integer | null: false       |
+| city            | string  | null: false       |
+| address         | string  | null: false       |
+| building        | string  |                   |
+| phone_number    | string  | null: false       |
+| buy_item_id     | integer | foreign_key: true |
 
 ### Association
 
