@@ -9,7 +9,7 @@ class SellItem < ApplicationRecord
   belongs_to_active_hash :status
   has_one_attached :image
 
-  validates :name, :explanation, :area_id, :category_id, :day_id, :delivery_fee_id, :status_id, :price, :user_id, presence: true
+  validates :name, :image, :explanation, :area_id, :category_id, :day_id, :delivery_fee_id, :status_id, :price, :user_id, presence: true
 
   validates :area_id, :category_id, :day_id, :delivery_fee_id, :status_id, numericality: { other_than: 0 } 
 end
