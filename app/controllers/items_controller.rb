@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @sell_item = SellItem.create(sell_item_params)
+    @sell_item = SellItem.new(sell_item_params)
     if @sell_item.save
       redirect_to action: :index
     else
