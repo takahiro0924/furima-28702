@@ -155,9 +155,6 @@
         <% end %>
       </li>
 
-      <% unless @sell_item.present? %>
-      <%= render "shared/dummy" %>
-      <%end%>
       <%# /商品がない場合のダミー %>
       <% unless @sell_item.present? %>
       <%= render "shared/dummy" %>
