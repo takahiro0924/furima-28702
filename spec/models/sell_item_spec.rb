@@ -52,14 +52,14 @@ RSpec.describe SellItem, type: :model do
     it 'priceは300以下だと保存されない' do
       @sell_item.price = '100'
       @sell_item.valid?
-      expect(@sell_item.errors.full_messages).to include("Price must be greater than 300")
+      expect(@sell_item.errors.full_messages).to include('Price must be greater than 300')
     end
     it 'priceは9,999,999以上だと保存されない' do
       @sell_item.price = '10000000'
       @sell_item.valid?
-      expect(@sell_item.errors.full_messages).to include("Price must be less than 9999999")
+      expect(@sell_item.errors.full_messages).to include('Price must be less than 9999999')
     end
-      it '半角英数300以外だと保存されない' do
+    it '半角英数300以外だと保存されない' do
       @sell_item.price = '５０００'
       @sell_item.valid?
       expect(@sell_item.errors.full_messages).to include('Price is not a number')
