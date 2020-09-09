@@ -11,8 +11,7 @@ class SellItem < ApplicationRecord
 
   validates :name, :image, :explanation, :area_id, :category_id, :day_id, :delivery_fee_id, :status_id, :price, presence: true
 
-  validates :area_id, :category_id, :day_id, :delivery_fee_id, :status_id, numericality: { other_than: 0 } 
+  validates :area_id, :category_id, :day_id, :delivery_fee_id, :status_id, numericality: { other_than: 0 }
 
-  validates :price,numericality: { only_integer: true,greater_than: 300, less_than: 9999999}
- 
+  validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999 }
 end

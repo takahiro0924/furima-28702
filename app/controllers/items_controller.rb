@@ -12,11 +12,10 @@ class ItemsController < ApplicationController
     @sell_item = SellItem.create(sell_item_params)
     if @sell_item.save
       redirect_to action: :index
-    else 
-      render'new'
+    else
+      render 'new'
     end
   end
-      
 
   private
 
