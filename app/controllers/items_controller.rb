@@ -26,12 +26,25 @@ class ItemsController < ApplicationController
   def destroy 
     sell_item = SellItem.find(params[:id])
     if sell_item.destroy
-      redirect_to action: :index #here
+      redirect_to action: :index 
     else
-      render'show'
+      render 'show'
     end
   end
+
+  def edit
+    @sell_item = SellItem.find(params[:id])
+  end
   
+  def update
+    @sell_item = SellItem.find(params[:id])
+    if @sell_item.update(sell_item_params)
+      redirect_to action: :show
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def sell_item_params
