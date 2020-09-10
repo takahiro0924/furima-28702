@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :set_sell_item, only: [:edit, :show]
 
   def index
     @sell_item = SellItem.includes(:user)
@@ -19,7 +20,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @sell_item = SellItem.find(params[:id])
   end
 
   def destroy
@@ -32,7 +32,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @sell_item = SellItem.find(params[:id])
   end
 
   def update
@@ -48,6 +47,10 @@ class ItemsController < ApplicationController
 
   def sell_item_params
     params.require(:sell_item).permit(:name, :explanation, :category_id, :status_id, :delivery_fee_id, :area_id, :day_id, :price, :image).merge(user_id: current_user.id)
+  end
+
+  def set_sell_item
+  @sell_item = SellItem.find(params[:id])
   end
 
   def move_to_index
