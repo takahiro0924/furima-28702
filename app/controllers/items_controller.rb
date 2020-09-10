@@ -18,6 +18,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @sell_item = SellItem.find(params[:id])
+  end
   private
 
   def sell_item_params
