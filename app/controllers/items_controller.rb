@@ -23,10 +23,10 @@ class ItemsController < ApplicationController
   end
 
 
-  def destroy
+  def destroy 
     sell_item = SellItem.find(params[:id])
     if sell_item.destroy
-      redirect_to action: :index
+      redirect_to action: :index #here
     else
       render'show'
     end
