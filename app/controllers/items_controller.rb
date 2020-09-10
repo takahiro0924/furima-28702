@@ -18,6 +18,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @sell_item = SellItem.find(params[:id])
+  end
+
+  def destroy
+    sell_item = SellItem.find(params[:id])
+    if sell_item.destroy
+      redirect_to action: :index
+    else
+      render'show'
+    end
+  end
   private
 
   def sell_item_params
