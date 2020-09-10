@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
     @sell_item = SellItem.find(params[:id])
   end
 
+
   def destroy
     sell_item = SellItem.find(params[:id])
     if sell_item.destroy
@@ -30,6 +31,7 @@ class ItemsController < ApplicationController
       render'show'
     end
   end
+  
   private
 
   def sell_item_params
