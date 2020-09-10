@@ -22,11 +22,10 @@ class ItemsController < ApplicationController
     @sell_item = SellItem.find(params[:id])
   end
 
-
-  def destroy 
+  def destroy
     sell_item = SellItem.find(params[:id])
     if sell_item.destroy
-      redirect_to action: :index 
+      redirect_to action: :index
     else
       render 'show'
     end
@@ -35,7 +34,7 @@ class ItemsController < ApplicationController
   def edit
     @sell_item = SellItem.find(params[:id])
   end
-  
+
   def update
     @sell_item = SellItem.find(params[:id])
     if @sell_item.update(sell_item_params)
