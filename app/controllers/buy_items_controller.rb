@@ -33,7 +33,7 @@ class BuyItemsController < ApplicationController
   end
 
   def set_sell_item
-    @sell_item = SellItem.find(params[:id])
+    @sell_item = SellItem.find(params[:item_id])
   end
 
 end
