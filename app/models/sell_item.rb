@@ -1,5 +1,6 @@
 class SellItem < ApplicationRecord
   belongs_to :user
+  has_one :buy_item
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :area
