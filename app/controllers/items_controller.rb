@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @sell_item = SellItem.includes(:user)
+    @buy_item = BuyItem.inculides(:user,:sell_item)
   end
 
   def new
@@ -20,6 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @buy_item = BuyItem.inculides(:user,:sell_item)
   end
 
   def destroy
