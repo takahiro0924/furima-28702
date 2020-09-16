@@ -8,6 +8,12 @@ class BuyItemsController < ApplicationController
       redirect_to root_path
     end
 
+    if user_signed_in?
+      @buy_item = BuyItemsInfo.new
+    else
+      redirect_to root_path
+    end
+
     unless @sell_item.buy_item == nil
       redirect_to root_path
     else
