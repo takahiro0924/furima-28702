@@ -3,9 +3,12 @@ class BuyItemsInfo
   attr_accessor :postal_code, :prefecture_id, :city, :address, :building, :phone_number, :user_id, :sell_item_id, :token
 
   validates :prefecture_id, numericality: { other_than: 0 }
-  validates :prefecture_id, :city, :address, :phone_number, presence: true
+  validates :prefecture_id, :city, :address, presence: true
   with_options presence: true, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'Input correctly' } do
     validates :postal_code
+  end
+  with_options presence: true, format: { with: /\A\d{11}\z/ } do
+    validates :phone_number
   end
 
   def save
