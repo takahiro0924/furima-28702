@@ -9,23 +9,23 @@ RSpec.describe BuyItemsInfo, type: :model do
       expect(@info).to be_valid
     end
     it 'buildingが空でも登録できる' do
-       @info.building = ''
-       expect(@info).to be_valid
+      @info.building = ''
+      expect(@info).to be_valid
     end
     it 'postal_codeが空だと登録できない' do
-       @info.postal_code = ''
-       @info.valid?
-       expect(@info.errors.full_messages).to include("Postal code can't be blank", "Postal code is invalid")
+      @info.postal_code = ''
+      @info.valid?
+      expect(@info.errors.full_messages).to include("Postal code can't be blank", 'Postal code is invalid')
     end
     it 'postal_codeに-を入れないと登録できない' do
       @info.postal_code = '1234567'
       @info.valid?
-      expect(@info.errors.full_messages).to include("Postal code is invalid")
+      expect(@info.errors.full_messages).to include('Postal code is invalid')
     end
     it 'prefecture_idが空だと登録できない' do
       @info.prefecture_id = ''
       @info.valid?
-      expect(@info.errors.full_messages).to include("Prefecture is not a number", "Prefecture can't be blank")
+      expect(@info.errors.full_messages).to include('Prefecture is not a number', "Prefecture can't be blank")
     end
     it 'cityが空だと登録できない' do
       @info.city = ''
@@ -40,18 +40,17 @@ RSpec.describe BuyItemsInfo, type: :model do
     it 'phone_numberが空だと登録できない' do
       @info.phone_number = ''
       @info.valid?
-      expect(@info.errors.full_messages).to include("Phone number can't be blank", "Phone number is invalid")
+      expect(@info.errors.full_messages).to include("Phone number can't be blank", 'Phone number is invalid')
     end
     it 'phone_numberが全角だと登録できない' do
       @info.phone_number = '０８０１２３４５６７８'
       @info.valid?
-      expect(@info.errors.full_messages).to include("Phone number is invalid")
+      expect(@info.errors.full_messages).to include('Phone number is invalid')
     end
     it 'tokenが空だと登録できない' do
       @info.token = ''
       @info.valid?
       expect(@info.errors.full_messages).to include("Token can't be blank")
     end
-
   end
-end     
+end

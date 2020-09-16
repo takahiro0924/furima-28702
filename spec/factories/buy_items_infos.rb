@@ -6,6 +6,6 @@ FactoryBot.define do
     address                { '武蔵野市' }
     building               { 'あいうえお' }
     phone_number           { '08012345678' }
-    token                  {'abc'}
+    token                  { 'abc' }
   end
 end

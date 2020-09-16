@@ -10,7 +10,7 @@ class BuyItemsController < ApplicationController
     if @buy_item.valid?
       pay_item
       @buy_item.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render 'index'
     end
@@ -22,11 +22,11 @@ class BuyItemsController < ApplicationController
 
   def pay_item
     @sell_item = SellItem.find(params[:item_id])
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # PAY.JPテスト秘密鍵
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']  # PAY.JPテスト秘密鍵
     Payjp::Charge.create(
-      amount: @sell_item.price,  # 商品の値段
-      card: buy_item_params[:token],    # カードトークン
-      currency:'jpy'                 # 通貨の種類(日本円)
+      amount: @sell_item.price, # 商品の値段
+      card: buy_item_params[:token], # カードトークン
+      currency: 'jpy'                 # 通貨の種類(日本円)
     )
   end
 end
