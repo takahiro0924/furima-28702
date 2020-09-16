@@ -34,7 +34,6 @@ class BuyItemsController < ApplicationController
   end
 
   def pay_item
-    @sell_item = SellItem.find(params[:item_id])
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']  # PAY.JPテスト秘密鍵
     Payjp::Charge.create(
       amount: @sell_item.price, # 商品の値段
