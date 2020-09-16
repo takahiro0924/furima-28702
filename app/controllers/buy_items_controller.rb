@@ -11,7 +11,7 @@ class BuyItemsController < ApplicationController
     if user_signed_in?
       @buy_item = BuyItemsInfo.new
     else
-      redirect_to root_path
+      redirect_to new_user_session_path
     end
 
     unless @sell_item.buy_item == nil
