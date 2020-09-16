@@ -7,6 +7,13 @@ class BuyItemsController < ApplicationController
     else
       redirect_to root_path
     end
+
+    unless @sell_item.buy_item == nil
+      redirect_to root_path
+    else
+      @buy_item = BuyItemsInfo.new
+    end
+
   end
 
   def create
