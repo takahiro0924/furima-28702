@@ -22,10 +22,10 @@ RSpec.describe BuyItemsInfo, type: :model do
       @info.valid?
       expect(@info.errors.full_messages).to include('Postal code is invalid')
     end
-    it 'prefecture_idが空だと登録できない' do
-      @info.prefecture_id = ''
+    it 'prefecture_idが0だと登録できない' do
+      @info.prefecture_id = '0'
       @info.valid?
-      expect(@info.errors.full_messages).to include('Prefecture is not a number', "Prefecture can't be blank")
+      expect(@info.errors.full_messages).to include("Prefecture must be other than 0")
     end
     it 'cityが空だと登録できない' do
       @info.city = ''
