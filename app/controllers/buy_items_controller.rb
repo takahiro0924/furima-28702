@@ -2,7 +2,11 @@ class BuyItemsController < ApplicationController
   before_action :set_sell_item, only: [:index, :create]
 
   def index
-    @buy_item = BuyItemsInfo.new
+    unless current_user.id == @sell_item.user_id
+      @buy_item = BuyItemsInfo.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
