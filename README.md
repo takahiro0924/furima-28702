@@ -67,3 +67,4 @@
 ### Association
 
 - belongs_to :buy_item
+<!-- 調整 -->
