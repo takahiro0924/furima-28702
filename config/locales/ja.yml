@@ -1,0 +1,20 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nick_name: ニックネーム
+       family_name: 苗字
+       first_name: 名前
+       first_furigana: 名前の振り仮名
+       family_furigana: 苗字の振り仮名
+       birthday: 生年月日
+     sell_item:
+       name: 商品名
+       image: 画像
+       explanation: 商品の説明
+       price: 価格
+       area_id: 配送元地域
+       category_id: カテゴリー
+       day_id: 配送までの日数
+       delivery_fee_id: 配送料の負担
+       status_id: 商品の状態
