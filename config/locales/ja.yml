@@ -18,3 +18,11 @@ ja:
        day_id: 配送までの日数
        delivery_fee_id: 配送料の負担
        status_id: 商品の状態
+ attributes:
+   postal_code: 郵便番号
+   prefecture_id: 都道府県
+   city: 市区町村
+   address: 番地
+   phone_number: 電話番号
+   token: カード情報
+

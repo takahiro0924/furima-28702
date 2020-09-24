@@ -15,42 +15,42 @@ RSpec.describe BuyItemsInfo, type: :model do
     it 'postal_codeが空だと登録できない' do
       @info.postal_code = ''
       @info.valid?
-      expect(@info.errors.full_messages).to include("Postal code can't be blank", 'Postal code is invalid')
+      expect(@info.errors.full_messages).to include("郵便番号を入力してください", "郵便番号は不正な値です")
     end
     it 'postal_codeに-を入れないと登録できない' do
       @info.postal_code = '1234567'
       @info.valid?
-      expect(@info.errors.full_messages).to include('Postal code is invalid')
+      expect(@info.errors.full_messages).to include("郵便番号は不正な値です")
     end
     it 'prefecture_idが0だと登録できない' do
       @info.prefecture_id = '0'
       @info.valid?
-      expect(@info.errors.full_messages).to include("Prefecture must be other than 0")
+      expect(@info.errors.full_messages).to include("都道府県は0以外の値にしてください")
     end
     it 'cityが空だと登録できない' do
       @info.city = ''
       @info.valid?
-      expect(@info.errors.full_messages).to include("City can't be blank")
+      expect(@info.errors.full_messages).to include("市区町村を入力してください")
     end
     it 'addressが空だと登録できない' do
       @info.address = ''
       @info.valid?
-      expect(@info.errors.full_messages).to include("Address can't be blank")
+      expect(@info.errors.full_messages).to include("番地を入力してください")
     end
     it 'phone_numberが空だと登録できない' do
       @info.phone_number = ''
       @info.valid?
-      expect(@info.errors.full_messages).to include("Phone number can't be blank", 'Phone number is invalid')
+      expect(@info.errors.full_messages).to include("電話番号を入力してください", "電話番号は不正な値です")
     end
     it 'phone_numberが全角だと登録できない' do
       @info.phone_number = '０８０１２３４５６７８'
       @info.valid?
-      expect(@info.errors.full_messages).to include('Phone number is invalid')
+      expect(@info.errors.full_messages).to include("電話番号は不正な値です")
     end
     it 'tokenが空だと登録できない' do
       @info.token = ''
       @info.valid?
-      expect(@info.errors.full_messages).to include("Token can't be blank")
+      expect(@info.errors.full_messages).to include("カード情報を入力してください")
     end
   end
 end
