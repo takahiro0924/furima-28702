@@ -25,7 +25,7 @@ RSpec.describe BuyItemsInfo, type: :model do
     it 'prefecture_idが0だと登録できない' do
       @info.prefecture_id = '0'
       @info.valid?
-      expect(@info.errors.full_messages).to include("都道府県は0以外の値にしてください")
+      expect(@info.errors.full_messages).to include("都道府県を選択してください")
     end
     it 'cityが空だと登録できない' do
       @info.city = ''

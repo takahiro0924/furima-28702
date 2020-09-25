@@ -22,27 +22,27 @@ RSpec.describe SellItem, type: :model do
     it 'category_idが空だと登録できない' do
       @sell_item.category_id = ''
       @sell_item.valid?
-      expect(@sell_item.errors.full_messages).to include("カテゴリーを入力してください", "カテゴリーは数値で入力してください")
+      expect(@sell_item.errors.full_messages).to include("カテゴリーを入力してください", "カテゴリーを選択してください")
     end
     it 'status_idが空だと登録できない' do
       @sell_item.status_id = ''
       @sell_item.valid?
-      expect(@sell_item.errors.full_messages).to include("商品の状態を入力してください", "商品の状態は数値で入力してください")
+      expect(@sell_item.errors.full_messages).to include("商品の状態を入力してください", "商品の状態を選択してください")
     end
     it 'delivery_feeが空だと登録できない' do
       @sell_item.delivery_fee_id = ''
       @sell_item.valid?
-      expect(@sell_item.errors.full_messages).to include("配送料の負担を入力してください", "配送料の負担は数値で入力してください")
+      expect(@sell_item.errors.full_messages).to include("配送料の負担を入力してください", "配送料の負担を選択してください")
     end
     it 'area_idが空だと登録できない' do
       @sell_item.area_id = ''
       @sell_item.valid?
-      expect(@sell_item.errors.full_messages).to include("配送元地域を入力してください", "配送元地域は数値で入力してください")
+      expect(@sell_item.errors.full_messages).to include("配送元地域を入力してください", "配送元地域を選択してください")
     end
     it 'day_idが空だと登録できない' do
       @sell_item.day_id = ''
       @sell_item.valid?
-      expect(@sell_item.errors.full_messages).to include("配送までの日数を入力してください", "配送までの日数は数値で入力してください")
+      expect(@sell_item.errors.full_messages).to include("配送までの日数を入力してください", "配送までの日数を選択してください")
     end
     it 'priceが空だと登録できない' do
       @sell_item.price = ''
